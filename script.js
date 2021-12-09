@@ -43,72 +43,77 @@
 //creating variables to split for arrays
 
 const alphaLow = "abcdefghijklmnopqrstuvwxyz";
-const alphaHigh ="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const alphaHigh = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const numbers = "0123456789";
 const symbols = "!@#$%^&*_-+=";
 
 //established arrays for password
 
 let low = alphaLow.split("")
-console.log(low);
+//console.log(low);
 let high = alphaHigh.split("")
-console.log(high);
-let Num = numbers.split("")
-console.log(Num);
+//console.log(high);
+let num = numbers.split("")
+//console.log(Num);
 let sym = symbols.split("")
-console.log(sym);
-
+//console.log(sym);
+//
 //randomizing arrays
-let lowRandom = Math.floor(Math.random(low)*low.length)
+let lowRandom = Math.floor(Math.random(low) * low.length)
 //console.log(lowRandom);
-let highRandom = Math.floor(Math.random(high)*high.length)
+let highRandom = Math.floor(Math.random(high) * high.length)
 //console.log(highRandom);
-let numRandom = Math.floor(Math.random(Num)*Num.length)
+let numRandom = Math.floor(Math.random(num) * num.length)
 //console.log(numRandom);
-let symRandom = Math.floor(Math.random(sym)*sym.length)
+let symRandom = Math.floor(Math.random(sym) * sym.length)
 //console.log(symRandom);
-
+//
 //catching index to actual output
 var alphaLowOut = alphaLow[lowRandom];
-console.log(alphaLowOut);
+//console.log(alphaLowOut);
 var alphaHighOut = alphaHigh[highRandom];
-console.log(alphaHighOut);
-var numOut  = numbers[numRandom];
-console.log(numOut);
-var symOut  = symbols[symRandom];
-console.log(symOut);
-
-
+//console.log(alphaHighOut);
+var numOut = numbers[numRandom];
+//console.log(numOut);
+var symOut = symbols[symRandom];
+//console.log(symOut);
 
 //empty array
 var randomPassword = []
+
+var randomAssort = Math.floor(Math.random(randomPassword)*randomPassword.length)
+console.log(randomAssort);
 // // Assignment Code
-// var generateBtn = document.querySelector("#generate");
 
-let length = prompt("How many characters would you like? \n"  + "Min=8: Max=128")
+var generateBtn = document.querySelector("#generate");
 
-let upperCase = confirm("Do you wish to use Uppercase Letters?")
-let lowerCase = confirm("Do you wish to use Lowercase Letters?")
-let numbs = confirm("Do you wish to use Numbers Letters?")
-let syms = confirm("Do you wish to use Symbols Letters?")
+// let length = prompt("How many characters would you like? \n"  + "Min=8: Max=128")
 
-function generateHigh(){
-  var randomHigh = Math.floor(Math.random()*high.length);
+// let upperCase = confirm("Do you wish to use Uppercase Letters?")
+// let lowerCase = confirm("Do you wish to use Lowercase Letters?")
+// let numbs = confirm("Do you wish to use Numbers Letters?")
+// let syms = confirm("Do you wish to use Symbols Letters?")
+//function to generate random uppercase letters
+function generateHigh() {
+  var randomHigh = Math.floor(Math.random() * high.length);
   var chosenHigh = high[randomHigh];
   return chosenHigh;
 }
+//function to generate random lowercase characters
 function generateLow() {
-  var randomLow = Math.floor(Math.random()*low.length);
+  var randomLow = Math.floor(Math.random() * low.length);
   var chosenLow = low[randomLow];
-  return chosenLow; 
+  return chosenLow;
 }
-function generateNum()  {
-  var randomNum = Math.floor(Math.random()*num.length);
+//function to generate random numbers
+function generateNum() {
+  var randomNum = Math.floor(Math.random() * num.length);
   var chosenNum = sym[randomNum];
   return chosenNum;
 }
-function generateSym()  {
-  var randomSym = Math.floor(Math.random()*sym.length);
+//function to generate random symbols
+function generateSym() {
+  var randomSym = Math.floor(Math.random() * sym.length);
   var chosenSym = sym[randomSym];
   return chosenSym;
 }
@@ -119,37 +124,77 @@ var genSym = []
 var genPass = []
 
 
-if (length < 8 || length > 128) {
-  alert("Passwords must be between 8 and 128 characters!")
-}else{
-  alert("Password Length Accepted");
 
-  for(let i=0; i<length; i++){
-    var letter=generateHigh()
-    randomPassword.push(letter)
 
+
+// let length = prompt("How many characters would you like? \n" + "Min=8: Max=128");
+// let upperCase = confirm("Do you wish to use Uppercase Letters?");
+// let lowerCase = confirm("Do you wish to use Lowercase Letters?");
+// let numbs = confirm("Do you wish to use Numbers Letters?");
+// let syms = confirm("Do you wish to use Symbols Letters?");
+
+var displayedPassword = randomPassword.toString()
+
+function writePassword() {
+let length = prompt("How many characters would you like? \n" + "Min=8: Max=128");
+let upperCase = confirm("Do you wish to use Uppercase Letters?");
+let lowerCase = confirm("Do you wish to use Lowercase Letters?");
+let numbs = confirm("Do you wish to use Numbers Letters?");
+let syms = confirm("Do you wish to use Symbols Letters?");
+
+  if (length < 8 || length > 128) {
+    alert("Passwords must be between 8 and 128 characters!")
+  } else {
+    alert("Password Length Accepted");
+
+    for (let i = 0; i < length; i++) {
+      var letterUp = generateHigh()
+      randomPassword.push(letterUp)
+    }
   }
+  if (lowerCase) {
+    var letterDown = generateLow()
+    randomPassword.push(letterDown)
+  }
+  if (numbs) {
+    var number = generateNum()
+    randomPassword.push(number)
+  }
+  if (syms) {
+    var symbol = generateSym()
+    randomPassword.push(symbol)
+  }
+  if (upperCase) {
+    var capital = generateHigh()
+    randomPassword.push(capital)
+  }
+  console.log(randomPassword);
+  randomPassword = randomPassword.join("");
+  return randomPassword;
+  // var writePassword = 
+  //function writePassword()
 }
-// console.log(randomPassword);
+  // Write password to the #password input
 
-//declare generateHigh, generateLow, generateNum, generateSym
+  function passwordWrite() {
+    var password = writePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+  //   let length = prompt("How many characters would you like? \n" + "Min=8: Max=128");
+  //   let upperCase = confirm("Do you wish to use Uppercase Letters?");
+  //   let lowerCase = confirm("Do you wish to use Lowercase Letters?");
+  //   let numbs = confirm("Do you wish to use Numbers Letters?");
+  //   let syms = confirm("Do you wish to use Symbols Letters?");
+   }
+  //   }
+  //   // 
 
 
-// Write password to the #password input
-//function writePassword() {
-  
+  // //   // // Add event listener to generate button
+  generateBtn.addEventListener("click", passwordWrite);
 
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-// }
-
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-//need to indicate whether or not the user input is between 8-128 characters.
-//if not within range, display alert telling them to input again
-//if within display password options windows
-//once choice
+// // //need to indicate whether or not the user input is between 8-128 characters.
+// // //if not within range, display alert telling them to input again
+// // //if within display password options windows
+// //
