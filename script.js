@@ -60,13 +60,13 @@ console.log(sym);
 
 //randomizing arrays
 let lowRandom = Math.floor(Math.random(low)*low.length)
-console.log(lowRandom);
+//console.log(lowRandom);
 let highRandom = Math.floor(Math.random(high)*high.length)
-console.log(highRandom);
+//console.log(highRandom);
 let numRandom = Math.floor(Math.random(Num)*Num.length)
-console.log(numRandom);
+//console.log(numRandom);
 let symRandom = Math.floor(Math.random(sym)*sym.length)
-console.log(symRandom);
+//console.log(symRandom);
 
 //catching index to actual output
 var alphaLowOut = alphaLow[lowRandom];
@@ -98,7 +98,7 @@ function generateHigh(){
   return chosenHigh;
 }
 function generateLow() {
-  var randowLow = Math.floor(Math.random()*low.length);
+  var randomLow = Math.floor(Math.random()*low.length);
   var chosenLow = low[randomLow];
   return chosenLow; 
 }
@@ -112,17 +112,11 @@ function generateSym()  {
   var chosenSym = sym[randomSym];
   return chosenSym;
 }
-
 var genUp = []
-
 var genLow = []
-
 var genNum = []
-
 var genSym = []
-
 var genPass = []
-
 
 
 if (length < 8 || length > 128) {
@@ -136,37 +130,26 @@ if (length < 8 || length > 128) {
 
   }
 }
-console.log(randomPassword);
+// console.log(randomPassword);
 
-function generatePassword(length, upperCase, lowerCase, nums, syms)
+//declare generateHigh, generateLow, generateNum, generateSym
 
 
 // Write password to the #password input
-function writePassword() {
+//function writePassword() {
   
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
+//   passwordText.value = password;
+// }
 
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
 
 //need to indicate whether or not the user input is between 8-128 characters.
 //if not within range, display alert telling them to input again
 //if within display password options windows
 //once choice
-
-
-
-
-
-
-
-
-
-
-
