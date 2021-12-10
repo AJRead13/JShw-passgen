@@ -7,38 +7,23 @@ const symbols = "!@#$%^&*_-+=";
 //established arrays for password
 //
 let low = alphaLow.split("")
-//console.log(low);
 let high = alphaHigh.split("")
-//console.log(high);
 let num = numbers.split("")
-//console.log(Num);
 let sym = symbols.split("")
-//console.log(sym);
 //
 //randomizing arrays
 let lowRandom = Math.floor(Math.random(low) * low.length)
-//console.log(lowRandom);
 let highRandom = Math.floor(Math.random(high) * high.length)
-//console.log(highRandom);
 let numRandom = Math.floor(Math.random(num) * num.length)
-//console.log(numRandom);
 let symRandom = Math.floor(Math.random(sym) * sym.length)
-//console.log(symRandom);
 //
 //catching index to actual output
 var alphaLowOut = alphaLow[lowRandom];
-//console.log(alphaLowOut);
 var alphaHighOut = alphaHigh[highRandom];
-//console.log(alphaHighOut);
 var numOut = numbers[numRandom];
-//console.log(numOut);
 var symOut = symbols[symRandom];
-//console.log(symOut);
-//
-//
 //
 var generateBtn = document.querySelector("#generate");
-//
 //
 function generateHigh() {
   var randomHigh = Math.floor(Math.random() * high.length);
@@ -63,18 +48,16 @@ function generateSym() {
   var chosenSym = sym[randomSym];
   return chosenSym;
 }
+//empty arrays
 var genUp = []
 var genLow = []
 var genNum = []
 var genSym = []
 var genPass = []
-//var randomizer =[]
-//
 function writePassword() {
   var randomPassword = [];
   randomPassword.length = 0;
   let characters = prompt("How many characters would you like? \n" + "Min=8: Max=128");
-  //
   if (characters < 8 || characters > 128) {
     alert("Passwords must be between 8 and 128 characters!");
     return;
@@ -125,7 +108,5 @@ function passwordWrite() {
   //
   passwordText.value = password;
 }
-//
 // //   // // Add event listener to generate button
 generateBtn.addEventListener("click", passwordWrite);
-//
